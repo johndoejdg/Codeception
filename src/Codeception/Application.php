@@ -135,9 +135,9 @@ class Application extends BaseApplication
         }
 
         $argv = $_SERVER['argv'];
-        $argvWithoutConfig = array();
+        $argvLength = count($argv);
 
-        for ($i = 0; $i < count($argv); $i++) {
+        for ($i = 0; $i < $argvLength; $i++) {
             if (preg_match('/^(?:-([^c-]*)?c|--config(?:=|$))(.*)$/', $argv[$i], $match)) {
                 if (!empty($match[2])) { //same index
                     $this->preloadConfigration($match[2]);
